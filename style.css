@@ -1,0 +1,245 @@
+/* Sayfanın genel kilitlenmesi ve esnek yapı */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background-color: #faf8f5;
+  font-family: "Georgia", serif;
+  display: flex;
+  width: 100%;
+}
+
+/* SOL/ORTA OKUMA ALANI: Dinamik olarak büyüyüp küçülen esnek alan */
+.scrollable-content {
+  flex: 1; /* Ekrandaki boş alanın tamamını kaplar, geniş ekranlarda sağa doğru yayılır */
+  height: 100vh;
+  padding: 60px 4% 60px 8%; /* Yüzdelik boşluk vererek küçük ekranlarda daralır, büyük ekranlarda genişler */
+  box-sizing: border-box;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  white-space: pre-line;
+}
+
+.scrollable-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* SAĞ MENÜ: Genişliği sabit kalır ama ekran küçüldüğünde patlamaz */
+.sidebar-menu {
+  width: 380px; /* Menü genişliği sabit */
+  height: 100vh;
+  background-color: #f3efe9;
+  border-left: 1px solid #e1dad0;
+  padding: 40px 30px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0; /* Ekran küçülse bile menünün ezilmesini/küçülmesini engeller */
+  overflow-y: auto; /* Menüdeki bölümler çok olursa kaydırma çubuğu çıkar */
+  scrollbar-width: thin;
+}
+
+/* Kitap Başlığı Stilleri */
+.book-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #111;
+  margin-bottom: 5px;
+}
+
+.book-subtitle {
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 40px;
+}
+
+/* Bölüm Linklerinin Listesi */
+.chapters-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.chapters-list li {
+  margin-bottom: 22px;
+}
+
+.chapters-list a {
+  color: #555;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.2s;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.chapters-list a:hover,
+.chapters-list a.active {
+  font-weight: bold !important; /* Tıklanan bölümün kalın görünmesini sağlar */
+  transform: translateX(
+    3px
+  ); /* Tıklarken veya üzerine gelince çok hafif sağa kayma efekti */
+}
+
+/* BÖLÜM KUTULARI AYARLARI */
+.section-bolum {
+  display: none;
+  max-width: 900px; /* Yazının aşırı uzun ve okunmaz olmaması için maksimum sınır */
+  margin: 0 auto;
+  width: 100%; /* Geniş ekranlarda okuma alanını kendi içinde ortalar */
+}
+
+.section-bolum.active {
+  display: block;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #111;
+  margin-bottom: 35px;
+}
+
+.roman-metni {
+  font-size: 20px; /* Okumayı rahatlatmak için fontu yarım tık büyüttük */
+  line-height: 1.9; /* Satır arasını biraz daha açarak ferahlattık */
+  color: #2c2c2c;
+  text-align: justify;
+}
+
+.chapters-list a[id^="link-bolum0"] {
+  color: #666666; /* Normal Hali (Açık Gri) */
+}
+.chapters-list a[id^="link-bolum0"]:hover {
+  color: #222222 !important; /* Hover Hali (Koyu Siyahımsı Gri) */
+}
+
+/* --- 10-19 ARASI: İSTEDİĞİNİZ KOYU KIRMIZI GRUBU (1. GRUP) --- */
+.chapters-list a[id^="link-bolum1"] {
+  color: #8b0000; /* Normal Hali (Koyu Kırmızı) */
+}
+.chapters-list a[id^="link-bolum1"]:hover {
+  color: #4a0000 !important; /* Hover Hali (Çok Koyu Şarap Kırmızısı) */
+}
+
+/* --- 20-29 ARASI: MAVİ GRUBU (2. GRUP) --- */
+.chapters-list a[id^="link-bolum2"] {
+  color: #4a7ebb; /* Normal Hali (Açık Mavi) */
+}
+.chapters-list a[id^="link-bolum2"]:hover {
+  color: #1a3a60 !important; /* Hover Hali (Gece Mavisi) */
+}
+
+/* --- 30-39 ARASI: YEŞİL GRUBU (3. GRUP) --- */
+.chapters-list a[id^="link-bolum3"] {
+  color: #4caf50; /* Normal Hali (Açık Yeşil) */
+}
+.chapters-list a[id^="link-bolum3"]:hover {
+  color: #1b5e20 !important; /* Hover Hali (Orman Yeşili) */
+}
+
+/* Sezon Butonları Kapsayıcısı */
+.season-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #e1dad0;
+  padding-bottom: 15px;
+}
+
+/* Genel Buton Tasarımı */
+.season-tabs button {
+  flex: 1;
+  background: none;
+  border: 1px solid #e1dad0;
+  padding: 8px 12px;
+  font-family: "Georgia", serif;
+  font-size: 14px;
+  cursor: pointer;
+  color: #666;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+}
+
+/* Üzerine gelince */
+.season-tabs button:hover {
+  background-color: #faf8f5;
+  color: #111;
+}
+
+/* Aktif (Seçili) Sezon Butonu (Bizim o asil koyu kırmızı rengimiz) */
+.season-tabs button.active {
+  background-color: #8b0000;
+  color: #ffffff;
+  border-color: #8b0000;
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   MOBİL CİHAZLAR İÇİN TAMAMEN YENİLENMİŞ VE DÜZELTİLMİŞ KUSURSUZ TASARIM
+   ========================================================================== */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column-reverse; /* Mobilde okuma ekranı üstte, menü altta kalır */
+  }
+
+  /* Okuma alanı mobilde parmakla rahat kaysın */
+  .scrollable-content {
+    padding: 40px 20px;
+  }
+
+  /* TELEFON EN ALT MENÜ KUTUSU */
+  .sidebar-menu {
+    width: 100%;
+    height: auto;
+    border-left: none;
+    border-top: 1px solid #e1dad0;
+    padding: 15px;
+    background-color: #f3efe9;
+    overflow-y: hidden; /* Telefonda dikey kaydırmayı tamamen öldürüyoruz */
+  }
+
+  /* Mobilde Kitap Başlığını ve Alt Başlığını Gizliyoruz (Telefonda yer kaplamasınlar diye) */
+  .book-title,
+  .book-subtitle {
+    display: none !important;
+  }
+
+  /* SEZON BUTONLARI: Telefonda yan yana iki temiz kutu olur */
+  .season-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #e1dad0;
+    padding-bottom: 10px;
+  }
+
+  .season-tabs button {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+
+  /* BÖLÜM LİSTELERİ: Telefonda harika bir yatay kayan şeride dönüşür */
+  .season-wrapper {
+    display: flex !important; /* JavaScript 'block' yapsa bile mobilde 'flex' kalmasını zorluyoruz */
+    gap: 19px;
+    overflow-x: auto; /* Parmakla sağa sola kaydırmayı açar */
+    padding-bottom: 5px;
+    margin: 0;
+    list-style: none;
+  }
+
+  /* Eğer sezon aktif değilse (Gizliyse) mobilde de tamamen yok olsun */
+  .season-wrapper[style*="display: none"] {
+    display: none !important;
+  }
+
+  .season-wrapper li {
+    margin-bottom: 0;
+    white-space: nowrap; /* Bölüm isimlerinin alt satıra kırılmasını önler */
+    padding: 5px 0;
+  }
+}
