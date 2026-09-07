@@ -178,6 +178,100 @@ h2 {
   font-weight: bold;
 }
 
+/* 💡 Sezon Seçimi yazısını ve butonu milimetrik olarak yan yana getiren CSS */
+.subtitle-header {
+  display: flex;
+  justify-content: space-between; /* Yazıyı sola, butonu en sağa yaslar */
+  align-items: center; /* İkisini de dikeyde tam aynı çizgiye hizalar */
+  width: 100%;
+  margin-bottom: 25px; /* Alttaki Sezon 1 / Sezon 2 butonlarıyla arasındaki boşluk */
+}
+
+/* 💡 Hizalamayı bozan eski tüm dikey boşlukları (margin/padding) tamamen sıfırlıyoruz */
+.book-subtitle {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline-block !important; /* Yan yana durabilmesi için blok özelliğini esnetiyoruz */
+}
+
+/* Yenilenmiş Kibar Gece Modu Buton Tasarımı */
+.dark-mode-toggle {
+  background: none;
+  border: 1px solid #e1dad0;
+  padding: 5px 10px;
+  font-family: "Georgia", serif;
+  font-size: 14px; /* Boyutunu bir tık küçülterek başlığın yanında zarif durmasını sağladık */
+  cursor: pointer;
+  color: #666;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  white-space: nowrap; /* Yazının daralıp alt satıra kırılmasını önler */
+}
+
+/* Fareyle üzerine gelince */
+.dark-mode-toggle:hover {
+  background-color: #faf8f5;
+  color: #111;
+}
+
+/* ==========================================================================
+   🛑 FÜME GECE MODU RENK ŞABLONLARI (KESİN VE GARANTİLİ KİLİTLİ SÜRÜM)
+   ========================================================================== */
+
+/* Arka planı kesin olarak koyu füme yapar */
+body.dark-mode,
+body.dark-mode .scrollable-content {
+  background-color: #22252a !important;
+}
+
+/* Hikaye metinlerini gözü yormayan yumuşak fildişi beyazı yapar */
+body.dark-mode h2,
+body.dark-mode .roman-metni {
+  color: #e3e3e3 !important;
+}
+
+/* Sağ menünün (sidebar) gece modundaki koyu antrasit tonu */
+body.dark-mode .sidebar-menu {
+  background-color: #1a1c20 !important;
+  border-left: 1px solid #2d3139 !important;
+  border-top: 1px solid #2d3139 !important; /* Mobil görünüm için */
+}
+
+/* Gece modunda kitap ana başlığı beyaz olur */
+body.dark-mode .book-title {
+  color: #ffffff !important;
+}
+
+/* Sezon değiştirme butonlarının gece modundaki pasif renkleri */
+body.dark-mode .season-tabs button {
+  border-color: #2d3139 !important;
+  color: #aaa !important;
+  background: none !important;
+}
+
+/* Gece modunda pasif sezon butonlarının üzerine gelince (hover) */
+body.dark-mode .season-tabs button:hover {
+  background-color: #2d3139 !important;
+  color: #fff !important;
+}
+
+/* ⚠️ ÖNEMLİ: Aktif (kırmızı) olan sezon butonunun gece modunda da kırmızı kalmasını sağlar */
+body.dark-mode .season-tabs button.active {
+  background-color: #8b0000 !important;
+  color: #ffffff !important;
+  border-color: #8b0000 !important;
+}
+
+/* Gece modu butonunun kendi iç tasarımı */
+body.dark-mode .dark-mode-toggle {
+  border-color: #2d3139 !important;
+  color: #ccc !important;
+}
+body.dark-mode .dark-mode-toggle:hover {
+  background-color: #2d3139 !important;
+  color: #fff !important;
+}
+
 /* ==========================================================================
    MOBİL CİHAZLAR İÇİN TAMAMEN YENİLENMİŞ VE DÜZELTİLMİŞ KUSURSUZ TASARIM
    ========================================================================== */

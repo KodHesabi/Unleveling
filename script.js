@@ -63,3 +63,31 @@ function switchSeason(seasonNumber) {
     showChapter("s4-bolum01");
   }
 }
+
+// Gece modunu açıp kapatan ve hafızada tutan fonksiyon
+function toggleDarkMode() {
+  var body = document.body;
+  var btn = document.getElementById("dark-mode-btn");
+
+  // Sitenin üzerine .dark-mode sınıfını ekle veya çıkar
+  body.classList.toggle("dark-mode");
+
+  // Butonun yazısını ve logosunu anlık olarak güncelle
+  if (body.classList.contains("dark-mode")) {
+    btn.innerHTML = "☀️ Gündüz Modu";
+    localStorage.setItem("tema", "karanlik"); // Okuyucu sayfayı yenilese bile karanlık kalır
+  } else {
+    btn.innerHTML = "🌙 Gece Modu";
+    localStorage.setItem("tema", "aydınlık");
+  }
+}
+
+// Okuyucu siteye girdiğinde en son hangi modda bıraktıysa otomatik onu açar
+document.addEventListener("DOMContentLoaded", function () {
+  var kaydedilenTema = localStorage.getItem("tema");
+  if (kaydedilenTema === "karanlik") {
+    document.body.classList.add("dark-mode");
+    var btn = document.getElementById("dark-mode-btn");
+    if (btn) btn.innerHTML = "☀️ Gündüz Modu";
+  }
+});
