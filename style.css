@@ -15,7 +15,7 @@ body {
 .scrollable-content {
   flex: 1; /* Ekrandaki boş alanın tamamını kaplar, geniş ekranlarda sağa doğru yayılır */
   height: 100vh;
-  padding: 60px 4% 60px 8%; /* Yüzdelik boşluk vererek küçük ekranlarda daralır, büyük ekranlarda genişler */
+  padding: 60px 15px 60px 8%; /* Yüzdelik boşluk vererek küçük ekranlarda daralır, büyük ekranlarda genişler */
   box-sizing: border-box;
   overflow-y: scroll;
   scrollbar-width: none;
@@ -28,7 +28,7 @@ body {
 
 /* SAĞ MENÜ: Genişliği sabit kalır ama ekran küçüldüğünde patlamaz */
 .sidebar-menu {
-  width: 380px; /* Menü genişliği sabit */
+  width: 375px; /* Menü genişliği sabit */
   height: 100vh;
   background-color: #f3efe9;
   border-left: 1px solid #e1dad0;
@@ -309,6 +309,7 @@ body.dark-mode .chapters-list a[id^="link-bolum3"] {
 body.dark-mode .chapters-list a[id^="link-bolum3"]:hover {
   color: #c8e6c9 !important;
 }
+
 
 /* ==========================================================================
    MOBİL CİHAZLAR İÇİN TAMAMEN YENİLENMİŞ VE DÜZELTİLMİŞ KUSURSUZ TASARIM
