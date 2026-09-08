@@ -273,6 +273,44 @@ body.dark-mode .dark-mode-toggle:hover {
 }
 
 /* ==========================================================================
+   🌙 GECE MODU İÇİN ÖZEL PARLAK BÖLÜM RENKLERİ (GÖRÜNÜRLÜK AYARI)
+   ========================================================================== */
+
+/* Sayfa karanlık moddayken (.dark-mode) renk gruplarını canlandırıyoruz */
+
+/* --- 01-09 ARASI: GECE GRİSİ (Karanlıkta parlayan gümüş gri) --- */
+body.dark-mode .chapters-list a[id^="link-bolum0"] {
+  color: #b0b5bc !important;
+}
+body.dark-mode .chapters-list a[id^="link-bolum0"]:hover {
+  color: #ffffff !important; /* Üzerine gelince tam beyaz olur */
+}
+
+/* --- 10-19 ARASI: GECE KIRMISIZI (Göz alıcı canlı kırmızı) --- */
+body.dark-mode .chapters-list a[id^="link-bolum1"] {
+  color: #ff5252 !important;
+}
+body.dark-mode .chapters-list a[id^="link-bolum1"]:hover {
+  color: #ff8a80 !important;
+}
+
+/* --- 20-29 ARASI: GECE MAVİSİ (Karanlıkta parlayan açık mavi) --- */
+body.dark-mode .chapters-list a[id^="link-bolum2"] {
+  color: #64b5f6 !important;
+}
+body.dark-mode .chapters-list a[id^="link-bolum2"]:hover {
+  color: #bbdefb !important;
+}
+
+/* --- 30-39 ARASI: GECE YEŞİLİ (Yumuşak fosforlu yeşil) --- */
+body.dark-mode .chapters-list a[id^="link-bolum3"] {
+  color: #81c784 !important;
+}
+body.dark-mode .chapters-list a[id^="link-bolum3"]:hover {
+  color: #c8e6c9 !important;
+}
+
+/* ==========================================================================
    MOBİL CİHAZLAR İÇİN TAMAMEN YENİLENMİŞ VE DÜZELTİLMİŞ KUSURSUZ TASARIM
    ========================================================================== */
 @media (max-width: 768px) {
