@@ -15,7 +15,7 @@ body {
 .scrollable-content {
   flex: 1; /* Ekrandaki boş alanın tamamını kaplar, geniş ekranlarda sağa doğru yayılır */
   height: 100vh;
-  padding: 60px 15px 60px 8%; /* Yüzdelik boşluk vererek küçük ekranlarda daralır, büyük ekranlarda genişler */
+  padding: 30px 60px 60px 4%; /* Yüzdelik boşluk vererek küçük ekranlarda daralır, büyük ekranlarda genişler */
   box-sizing: border-box;
   overflow-y: scroll;
   scrollbar-width: none;
@@ -87,7 +87,7 @@ body {
 /* BÖLÜM KUTULARI AYARLARI */
 .section-bolum {
   display: none;
-  max-width: 900px; /* Yazının aşırı uzun ve okunmaz olmaması için maksimum sınır */
+  max-width: 800px; /* Yazının aşırı uzun ve okunmaz olmaması için maksimum sınır */
   margin: 0 auto;
   width: 100%; /* Geniş ekranlarda okuma alanını kendi içinde ortalar */
 }
@@ -100,7 +100,7 @@ h2 {
   font-size: 28px;
   font-weight: bold;
   color: #111;
-  margin-bottom: 35px;
+  margin-bottom: 25px;
 }
 
 .roman-metni {
